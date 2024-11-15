@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/public/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 
-
 const routes: Routes = [
+  // Ruta por defecto
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+  // Ruta home
   { path: 'home', component: HomeComponent },
 
-  // Lazy load para el módulo tienda y sus rutas
+  {
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
+    // loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule)
+  },
+
+  // Módulo de administración
   {
     path: 'admin',
     loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
 
-
-  // Lazy load para el módulo de autenticación
-  {path: 'auth',
-    loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule)
-  },
-
+  // Ruta wildcard - SIEMPRE al final
+  { path: '**', redirectTo: 'home' }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
