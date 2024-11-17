@@ -5,11 +5,12 @@ import { SidebarComponent } from './sidebar.component';
 
 @NgModule({
   declarations: [
-    SidebarComponent, // Declara el componente principal del módulo
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
-    SidebarRoutingModule, // Importa el enrutamiento del sidebar
+    SidebarRoutingModule,
   ],
+  exports: [SidebarComponent]
 })
 export class SidebarModule {}

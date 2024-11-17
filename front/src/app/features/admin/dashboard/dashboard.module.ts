@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { SidebarModule } from '../shared/sidebar/sidebar.module'; // Importar SidebarModule
+import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { SidebarModule } from '../../../shared/sidebar/sidebar.module';
+import { AdminModule } from '../admin.module';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [
+    DashboardComponent
+  ],
   imports: [
     CommonModule,
-    SidebarModule, // Asegúrate de importar SidebarModule
-  ],
+    DashboardRoutingModule,
+    SidebarModule,
+    AdminModule
+  ]
 })
-export class DashboardModule {}
+export class DashboardModule { }

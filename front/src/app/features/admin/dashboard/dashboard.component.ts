@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
+import {ViewService} from "../../../shared/view.service";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {
-  selectedView: string = 'estadistica'; // Vista inicial
+  selectedView: string = 'estadistica';
 
-  changeView(view: string) {
-    this.selectedView = view; // Actualiza la vista seleccionada
+  constructor(private viewService: ViewService) {
+    this.viewService.currentView$.subscribe(view => {
+      this.selectedView = view;
+    });
   }
 }

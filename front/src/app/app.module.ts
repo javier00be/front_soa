@@ -10,17 +10,16 @@ import { HeaderComponent } from './features/public/shared/header/header.componen
 
 @NgModule({
   declarations: [
-    AppComponent, // Declara el componente principal
+    AppComponent,
     HomeComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule, // Importa el módulo de enrutamiento
+    AppRoutingModule,
     CoreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent] // Indica que este es el componente raíz
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
