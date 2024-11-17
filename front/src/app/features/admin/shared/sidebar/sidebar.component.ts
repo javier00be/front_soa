@@ -3,14 +3,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  @Input() currentView: string = ''; // Recibe la vista actual
-  @Output() viewChange = new EventEmitter<string>();
+  @Input() currentView!: string; // Recibe la vista actual desde el componente padre
+  @Output() viewChange = new EventEmitter<string>(); // Emite el evento de cambio de vista
 
   changeView(view: string) {
-    // Emitir el evento con el valor de la vista
     this.viewChange.emit(view);
   }
 }
